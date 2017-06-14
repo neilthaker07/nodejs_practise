@@ -1,0 +1,68 @@
+<h1>{{ title }}</h1>
+
+<form action="/insert" method = "post">
+	<div class="input">
+		<label for="username">Username</label>
+		<input type="text" id="username" name="username">
+	</div>
+	<div class="input">
+		<label for="password">password</label>
+		<input type="password" id="password" name="password">
+	</div>
+
+<button type="submit">INSERT DATA</button>
+
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<a href="/get-data">LOAD DATA</a>
+	{{# each items }}
+	<article class="item">
+		USERNAME : {{ this.username }}
+		PASSWORD : {{ this.password }}
+		ID : {{ this.id }}
+	</article>
+	{{/each}}
+<br>
+<br>
+
+
+<form action="/update" method = "post">
+	<div class="id">
+		<label for="id">ID</label>
+		<input type="text" id="id" name="id">
+	</div>
+	<div class="input">
+		<label for="username">Username</label>
+		<input type="text" id="username" name="username">
+	</div>
+	<div class="input">
+		<label for="password">password</label>
+		<input type="password" id="password" name="password">
+	</div>
+
+<button type="submit">UPDATE DATA</button>
+
+
+<br>
+<br>
+<br>
+<form action="/delete" method = "post">
+	<div class="id">
+		<label for="id">ID</label>
+		<input type="text" id="id" name="id">
+	</div>
+	<button type="submit">DELETE DATA</button>
+</form>
+
+
+
+
+
+
+
+

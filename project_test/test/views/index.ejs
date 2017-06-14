@@ -1,0 +1,156 @@
+<html>
+
+<head><title> Login </title></head>
+
+<body>
+<!--
+<form action="/signup" id="uploadForm" enctype="multipart/form-data" method="post">
+	<input id="userFile" name="userFile" type="file">
+	<input type="submit" id="upload-button" value="Here it is" name="submit">
+</form>
+-->
+<form action="/colors" id="colors" enctype="multipart/form-data" method="post">
+				<h2>File Uploader</h2>
+					<button class="btn btn-lg upload-btn" type="button">Upload File</button>
+
+<input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
+
+<input type="submit" value="forscript" >
+</form>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+<script>
+$('.upload-btn').on('click', function (){
+$('#upload-input').click()
+});
+
+$('#upload-input').on('change', function(){
+
+var files = $(this).get(0).files;
+
+if (files.length > 0){
+// create a FormData object which will be sent as the data payload in the
+// AJAX request
+var formData = new FormData();
+
+// loop through all the selected files and add them to the formData object
+for (var i = 0; i < files.length; i++) {
+var file = files[i];
+
+// add the files to formData object for the data payload
+formData.append('uploads[]', file, file.name);
+}
+
+$.ajax({
+url: '/signup',
+type: 'POST',
+data: formData,
+processData: false,
+contentType: false,
+success: function(data){
+console.log('upload successful!\n' + data);
+},
+xhr: function() {
+// create an XMLHttpRequest
+var xhr = new XMLHttpRequest();
+
+// listen to the 'progress' event
+xhr.upload.addEventListener('progress', function(evt) {
+
+}, false);
+
+return xhr;
+}
+});
+
+
+
+}
+});
+</script>
+
+
+
+</body>
+<html>
+
+<!--
+
+
+
+<script type = "text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+
+var form = document.getElementById('uploadForm');
+var fileSelect = document.getElementById('userFile');
+var uploadButton = document.getElementById('upload-button');
+
+form.onsubmit = function(event) {
+  event.preventDefault();
+
+  // Update button text.
+  uploadButton.innerHTML = 'Uploading...';
+
+  // Get the selected files from the input.
+  var files = fileSelect.files;
+
+  // Create a new FormData object.
+  var formData = new FormData();
+
+  // Add the file to the request.
+  formData.append('photooo', file, file.name);
+
+  // Set up the request.
+  var xhr = new XMLHttpRequest();
+
+  // Open the connection.
+  xhr.open('POST', 'app.js', true);
+	
+ // Set up a handler for when the request finishes.
+  xhr.onload = function () {
+	  if (xhr.status === 200) {
+	    // File(s) uploaded.
+	    uploadButton.innerHTML = 'Upload';
+	  } else {
+	    alert('An error occurred!');
+	  }
+	};
+
+	// Send the Data.
+	xhr.send(formData);
+}
+  </script>
+-->
+
+
+
+
+<!--
+
+fs.rename(tempPath, targetPath, function(err) {
+            if (err) throw err;
+            console.log("Upload completed!");
+        });
+
+	var tempPath = req.files.file.path,
+    	targetPath = path.resolve('/home/neil/Desktop/yyyyyyyaaaa/img.zip');
+
+
+
+app.use(bodyParser({uploadDir:'/home/neil/Desktop/yyyyyyyaaaa'}));
+
+
+
+
+class="jq_req"  onchange="getFileData(this);"
+
+function getFileData(myFile)
+{
+   var file = myFile.files[0];  
+   var filename = file.name;
+
+	alert("You selected " + filename);
+	alert("Hi : " + file.value);
+}
+-->
